@@ -7,6 +7,6 @@ namespace Infrastructure.Interfaces.DBConfiguration
 {
     public interface IDatabaseFactory
     {
-        IDbConnection DBConnection { get; set; }
+        IDbConnection DBConnection { get; }
     }
 }
