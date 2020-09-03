@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Repositories.Base
+namespace Infrastructure.Repositories.Base.EF
 {
     public class RepositoryBaseAsync<T> : SpecificMethods<T>, IRepositoryBaseAsync<T> where T : class, IEntityBase
     {
