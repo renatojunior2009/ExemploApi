@@ -1,9 +1,8 @@
 ﻿using Domain;
-using Infrastructure.Interfaces.Repositories.Domain;
 using System.Collections;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Interfaces.Repositories
+namespace Infrastructure.Interfaces.Repositories.Domain
 {
     public interface IClientRepository : IDomainRepository<Client>
     {
