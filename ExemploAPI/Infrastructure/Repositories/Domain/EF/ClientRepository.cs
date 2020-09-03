@@ -1,12 +1,13 @@
 ﻿using Domain;
 using Infrastructure.Interfaces.Repositories.Domain;
+using Infrastructure.Repositories.Base.EF;
 using Infrastructure.Repositories.Domain.EF;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Repositories.Domain
+namespace Infrastructure.Repositories.Domain.EF
 {
     public class ClientRepository : DomainRepository<Client>, IClientRepository
     {

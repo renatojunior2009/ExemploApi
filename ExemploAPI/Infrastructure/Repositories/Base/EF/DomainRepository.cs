@@ -1,9 +1,8 @@
 ﻿using Domain.Entities.Base;
 using Infrastructure.Interfaces.Repositories.Domain;
-using Infrastructure.Repositories.Base.EF;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Repositories.Domain.EF
+namespace Infrastructure.Repositories.Base.EF
 {
     public class DomainRepository<T>: RepositoryBaseAsync<T>, IDomainRepository<T> where T: class, IEntityBase
     {
