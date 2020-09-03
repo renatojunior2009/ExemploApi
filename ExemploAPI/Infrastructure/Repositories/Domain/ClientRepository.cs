@@ -16,7 +16,7 @@ namespace Infrastructure.Repositories.Domain
         #region Publics Methods
         public async Task<IEnumerable> GetSpecialsCustomers()
         {
-            IQueryable<Client> query = await Task.FromResult(GenerateQuery(conditions: c => c.Especial == true, hasOrdination: c => c.OrderBy(x => x.Nome)));
+            IQueryable<Client> query = await Task.FromResult(GenerateQuery(c => c.Especial == true, c => c.OrderBy(x => x.Nome)));
 
             return query.AsEnumerable();
         } 
