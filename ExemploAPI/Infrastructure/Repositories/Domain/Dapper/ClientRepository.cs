@@ -4,6 +4,7 @@ using Infrastructure.Interfaces.DBConfiguration;
 using Infrastructure.Interfaces.Repositories.Domain;
 using Infrastructure.Repositories.Base.Dapper;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
@@ -29,7 +30,7 @@ namespace Infrastructure.Repositories.Domain.Dapper
         #endregion
 
         #region Methods
-        public async Task<IEnumerable> GetSpecialsCustomers()
+        public async Task<IEnumerable<Client>> GetSpecialsCustomers()
         {
             return await _dbConnection.QueryAsync<Client>(SqlSpecialCustomers, transaction: _dbTransaction);
         } 
