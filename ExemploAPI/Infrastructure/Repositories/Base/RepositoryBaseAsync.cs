@@ -1,13 +1,16 @@
 ﻿using Domain.Entities.Base;
 using Infrastructure.Interfaces.Repositories.Base;
+using Infrastructure.Interfaces.Repositories.SpecificMethodsEF;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.Base
 {
-    public class RepositoryBaseAsync<T> : IRepositoryBaseAsync<T> where T : class, IEntityBase
+    public class RepositoryBaseAsync<T> : SpecificMethods<T>, IRepositoryBaseAsync<T> where T : class, IEntityBase
     {
         #region Fields
         private readonly DbContext _dbContext;
@@ -68,6 +71,23 @@ namespace Infrastructure.Repositories.Base
         }
 
         #endregion
+        
+        #region Protected Methods
+
+        protected override IQueryable<T> GenerateQuery(Expression<Func<T, bool>> conditions = null, Func<IQueryable<T>, IOrderedQueryable<T>> hasOrdination = null, params string[] parameters)
+        {
+            IQueryable<T> query = _dbSet;
+            query = GenerateQueryConditions(query, conditions);
+            query = GenereteIncludeParameters(query, parameters);
+
+            if (hasOrdination != null)
+                return hasOrdination(query);
+
+            return query;
+        }
+     
+       
+        #endregion
 
         #region Private Methods
         private async Task<int> SaveChangesAsync()
@@ -75,7 +95,24 @@ namespace Infrastructure.Repositories.Base
             return await _dbContext.SaveChangesAsync();
         }
 
-       
+        private IQueryable<T> GenerateQueryConditions(IQueryable<T> query, Expression<Func<T, bool>> conditions)
+        {
+            if (conditions != null)
+                return query.Where(conditions);
+
+            return query;
+        }
+
+        private IQueryable<T> GenereteIncludeParameters(IQueryable<T> query, string[] parameters)
+        {
+            foreach (var param in parameters)
+            {
+                query = query.Include(param);
+            }
+
+            return query;
+        }
+
         #endregion
     }
 }
