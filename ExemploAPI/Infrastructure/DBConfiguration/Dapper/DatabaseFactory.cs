@@ -9,7 +9,7 @@ namespace Infrastructure.DBConfiguration.Dapper
     public class DatabaseFactory : IDatabaseFactory
     {
         #region Fields
-        private IOptions<DataSettings> _dataSettings;
+        private readonly IOptions<DataSettings> _dataSettings;
         #endregion
 
         #region Properties
