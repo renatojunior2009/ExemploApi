@@ -39,7 +39,7 @@ namespace Infrastructure.Repositories.Base
             if (entity == null) 
                 return false;
 
-            return await DeleteAsync(entity) > 0 ? true : false;
+            return await DeleteAsync(entity) > 0;
         }
 
         public async Task<int> DeleteAsync(T entity)
