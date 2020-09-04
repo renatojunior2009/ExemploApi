@@ -14,5 +14,11 @@
     <ProjectReference Include="..\Infrastructure.IoC\Infrastructure.IoC.csproj" />	  
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Controllers\ClientController.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 
 </Project>
