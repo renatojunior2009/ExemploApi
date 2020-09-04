@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.IoC.ORM.EF
 {
-    public class IoC : ORMTypes
+    public class EFIoC : ORMTypes
     {
         internal override IServiceCollection AddOrm(IServiceCollection services, IConfiguration configuration = null)
         {

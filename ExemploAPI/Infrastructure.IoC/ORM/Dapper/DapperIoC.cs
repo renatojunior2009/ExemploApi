@@ -8,7 +8,7 @@ using System;
 
 namespace Infrastructure.IoC.ORM.Dapper
 {
-    public class IoC : ORMTypes
+    public class DapperIoC : ORMTypes
     {
         internal override IServiceCollection AddOrm(IServiceCollection services, IConfiguration configuration = null)
         {
