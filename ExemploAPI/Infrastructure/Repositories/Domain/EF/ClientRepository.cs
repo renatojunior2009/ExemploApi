@@ -1,9 +1,7 @@
 ﻿using Domain;
 using Infrastructure.Interfaces.Repositories.Domain;
 using Infrastructure.Repositories.Base.EF;
-using Infrastructure.Repositories.Domain.EF;
 using Microsoft.EntityFrameworkCore;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
