@@ -17,6 +17,7 @@ namespace Infrastructure.IoC.ORM.EF
             string connectionString = configurationSettings.GetConnectionString("DefaultConnection");
 
             #region Context EF
+            services.AddScoped<DbContext, Context>();
             services.AddDbContext<Context>(options => options.UseSqlServer(connectionString));
             #endregion
 
