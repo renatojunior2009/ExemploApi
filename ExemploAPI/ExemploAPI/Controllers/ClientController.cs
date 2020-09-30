@@ -35,8 +35,8 @@ namespace ExemploAPI.Controllers
             
             var clientes =  await _clientService.GetSpecialsCustomers();
 
-            foreach (var cliente in clientes)            
-                _rabbitMQ.PublishMessage($"{cliente.Codigo} -{cliente.Nome}.", "clientesEspeciais", _connection);
+            //foreach (var cliente in clientes)            
+            //    _rabbitMQ.PublishMessage($"{cliente.Codigo} -{cliente.Nome}.", "clientesEspeciais", _connection);
             
             return clientes;
         }
